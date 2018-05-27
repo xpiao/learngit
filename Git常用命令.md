@@ -4,11 +4,8 @@
 cd GitHub
 mkdir learngit
 cd leargit
-pwd
 
-192:~ xuemin$ cd GitHub/learngit/
-192:learngit xuemin$ pwd
-/Users/xuemin/GitHub/learngit
+$ cd GitHub/learngit/
 ```
 
 ## 把仓库目录编程Git仓库
@@ -70,27 +67,6 @@ Changes not staged for commit:
 ## 查看所有提交历史
 `git log`
 
-```
-commit faf71b7ebf663211ce0f5995c29af600cd2a5bb1
-Author: xpiao <xmin_02@163.com>
-Date:   Sun May 27 15:42:57 2018 +0800
-
-    append GPL
-
-commit 4fa6de3615e435badfa6d97ab347449b6268a491
-Author: xpiao <xmin_02@163.com>
-Date:   Sun May 27 15:40:00 2018 +0800
-
-    add distributed
-
-commit b579646d10ba71ab20089f7167741968abc2fb5a
-Author: xpiao <xmin_02@163.com>
-Date:   Sun May 27 15:37:30 2018 +0800
-
-    wrote a readme file
-
-```
-
 `git log —pretty=oneline`
 
 ```
@@ -117,4 +93,33 @@ faf71b7 HEAD@{2}: commit: append GPL
 4fa6de3 HEAD@{3}: commit: add distributed
 b579646 HEAD@{4}: commit (initial): wrote a readme file
 ```
+
+## 查看版本库和本地工作区两个文件的区别
+```
+git diff HEAD -- readme.txt
+
+diff --git a/readme.txt b/readme.txt
+index 76d770f..a9c5755 100644
+--- a/readme.txt
++++ b/readme.txt
+@@ -1,4 +1,4 @@
+ Git is a distributed version control system.
+ Git is free software distributed under the GPL.
+ Git has a mutable index called stage.
+-Git tracks changes.
++Git tracks changes of files.
+```
+
+## 丢弃工作区的修改，让文件回到最近一次`git commit` 或者 `git add` 时的内容
+`git checkout -- readme.txt`
+
+## `git add readme.txt`提交到了暂存区，撤销暂存区的修改，重新放回工作区：
+```
+git reset HEAD readme.txt
+Unstaged changes after reset:
+M    readme.txt
+```
+
+## 删除
+
 
